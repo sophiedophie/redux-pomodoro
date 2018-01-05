@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PomodoroCard from './Component/PomodoroCard';
+import PomodoroCard from './Component/index';
 import reducer from './reducer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

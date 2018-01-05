@@ -31,7 +31,7 @@ const TIME_DURATION = 1500;
 
 const initialState = {
   isPlaying: false,
-  counterDuration: TIME_DURATION,
+  timeDuration: TIME_DURATION,
   elaspedTime: 0,
 }
 
@@ -55,6 +55,7 @@ function applyStartTimer(state) {
     // current state
     ...state,
     isPlaying: true,
+    elaspedTime: 0
   }
 }
 
@@ -82,7 +83,7 @@ function applyAddSecond(state) {
 
 //export action creators
 
-const actionCreators = {
+export const actionCreators = {
   startTimer,
   restartTimer,
   addSecond

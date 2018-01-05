@@ -1,8 +1,10 @@
 // connet to the store
 import { connect } from 'react-redux';
 import PomodoroCard from './PomodoroCard';
+import { bindActionCreators } from 'redux';
+import { actionCreators as pomodoroActions } from '../reducer'
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   const { isPlaying, elaspedTime, timeDuration } = state;
   return {
     isPlaying,
@@ -11,4 +13,12 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(PomodoroCard);
+const mapDispatchToProps = dispatch => {
+  return {
+    startTimer: bindActionCreators(pomodoroActions.startTimer, dispatch),
+    restartTimer: bindActionCreators(pomodoroActions.restartTimer, dispatch),
+    addSecond: bindActionCreators(pomodoroActions.addSecond, dispatch)
+  } 
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PomodoroCard);
